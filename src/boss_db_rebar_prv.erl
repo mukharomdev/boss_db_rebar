@@ -25,7 +25,8 @@ init(State) ->
 
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
-    io:format("This is boss_db_rebar"),
+    io:format("This is boss_db_rebar\n"),
+    boss_db:start(Options),
     {ok, State}.
 
 -spec format_error(any()) ->  iolist().
