@@ -25,8 +25,13 @@ init(State) ->
 
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
-    io:format("This is boss_db_rebar\n"),
-    ok = boss_db_rebar_db:connect(),
+    try boss_db_rebar_db:connect() of
+        ok -> ok,
+        io:format("This is boss_db_rebar\n"),
+    catch
+        Class:Reason:Stacktrace ->
+         {Stacktrace}
+    end,
     {ok, State}.
 
 -spec format_error(any()) ->  iolist().
