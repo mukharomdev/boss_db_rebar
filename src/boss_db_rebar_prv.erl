@@ -27,9 +27,9 @@ init(State) ->
 do(State) ->
     try boss_db_rebar_db:connect() of
         ok -> ok,
-        io:format("This is boss_db_rebar\n"),
+        io:format("This is boss_db_rebar\n")
     catch
-        Class:Reason:Stacktrace ->
+        _:_:Stacktrace ->
          {Stacktrace}
     end,
     {ok, State}.
