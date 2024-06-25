@@ -1,4 +1,4 @@
--module (bos_db_rebar_db).
+-module (boss_db_rebar_db).
 
 -export ([connect/0]).
 
