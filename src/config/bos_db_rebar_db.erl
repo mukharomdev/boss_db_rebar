@@ -14,10 +14,10 @@ connect()->
     {db_database, "users_db"}
     % {db_ssl, true}
     ],
-	 boss_db:start(DBOptions),
+	ok = boss_db:start(DBOptions),
 
 % boss_cache:start(CacheOptions), % If you want cacheing with Memcached
-	boss_news:start(), % Mandatory! Hopefully will be optional one day
+	% boss_news:start(), % Mandatory! Hopefully will be optional one day
     ok.
 % % Default setting
 % boss_db:start(DBOptions),
