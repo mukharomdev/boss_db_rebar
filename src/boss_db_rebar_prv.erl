@@ -25,9 +25,8 @@ init(State) ->
 
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
-    try
-        boss_db_rebar_db:connect(),
-
+    try boss_db_rebar_db:connect() of
+        ok -> ok,
         rebar_api:console("This is boss_db_rebar\n")
     catch
         _:_:Stacktrace ->
